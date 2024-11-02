@@ -1,0 +1,69 @@
+/* Mobile-first approach */
+
+.board-wrapper {
+  --mobile-width: 100%;
+  --tablet-width: 35rem;
+  --desktop-width: 47.5rem;
+
+  --board-margin: 1rem;
+  --square-size: 2.5rem; /* Base square size for mobile devices */
+
+  width: var(--mobile-width);
+  max-width: 100%;
+  padding: var(--board-margin);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.btn {
+  background-color: var(--clr-btn-bg);
+  color: var(--clr-btn-text);
+  font-size: 1rem;
+  text-transform: capitalize;
+  border: none;
+  border-radius: 0.25rem;
+  padding: 0.5rem 0.8rem;
+
+  transition: opacity 250ms ease-in-out;
+}
+
+.btn:where(:hover, :focus-visible) {
+  opacity: 0.85;
+}
+
+/* Media queries */
+/* For tablets >= 576px */
+@media screen and (width >= 36rem) {
+  .board-wrapper {
+    --square-size: 3.5rem;
+
+    width: var(--tablet-width);
+  }
+}
+
+/* For desktops >= 992px */
+@media screen and (width >= 62rem) {
+  .board-wrapper {
+    --square-size: 4.5rem;
+
+    width: var(--desktop-width);
+  }
+
+  .btn {
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    padding: 0.8rem 1rem;
+  }
+}
+
+/* Additional breakpoint for very small screens <= 400px */
+@media screen and (width <= 25rem) {
+  .board-wrapper {
+    --square-size: 2.25rem; /* Slightly smaller cells for very small screens */
+
+    padding: calc(var(--board-margin) / 2);
+  }
+}

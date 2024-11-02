@@ -1,0 +1,35 @@
+.modal.pawn-promotion {
+  width: var(--square-size);
+  height: 50%;
+}
+
+.modal.pawn-promotion .piece {
+  border: 1px solid var(--clr-dark);
+
+  transition: transform 250ms ease-in-out;
+}
+
+.modal.pawn-promotion .piece:where(:hover, :focus-within) {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+.modal.pawn-promotion .piece {
+  left: 0;
+}
+
+.modal.pawn-promotion .piece:where(.wq, .bq) {
+  top: 0;
+}
+
+.modal.pawn-promotion .piece:where(.wr, .br) {
+  top: var(--square-size);
+}
+
+.modal.pawn-promotion .piece:where(.wb, .bb) {
+  top: calc(2 * var(--square-size));
+}
+
+.modal.pawn-promotion .piece:where(.wn, .bn) {
+  top: calc(3 * var(--square-size));
+}

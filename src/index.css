@@ -1,0 +1,114 @@
+@import url("https://fonts.googleapis.com/css2?family=Sofia+Sans:ital,wght@0,1..1000;1,1..1000&display=swap");
+
+:root {
+  /* Colors */
+  --clr-bg: hsl(0, 0%, 22%);
+  --clr-text: hsl(0, 0%, 73%);
+  --clr-dark: hsl(200, 17%, 61%);
+  --clr-light: hsl(203, 14%, 89%);
+  --dark-sq-coord-clr: var(--clr-light);
+  --light-sq-coord-clr: var(--clr-dark);
+  --legal-move-highlight-clr-light: hsl(135, 15%, 54%);
+  --legal-move-highlight-clr-dark: hsl(151, 15%, 47%);
+  --last-move-highlight-clr-light: hsl(76, 51%, 69%);
+  --last-move-highlight-clr-dark: hsl(85, 32%, 55%);
+  --clr-btn-bg: hsl(203, 74%, 47%);
+  --clr-btn-text: hsl(0, 0%, 100%);
+
+  /* Font family */
+  --ff: "Sofia Sans", sans-serif;
+
+  /* Sizes */
+  --board-size: 8;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font: 100%;
+  color-scheme: dark;
+}
+
+input,
+textarea,
+button {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+img,
+figure,
+picture,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: unset;
+  text-decoration: none;
+}
+
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.2;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  background-color: var(--clr-bg);
+  font-family: var(--ff);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+  width: 2px;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--clr-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: hsla(0, 0%, 73%, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: hsl(0, 0%, 73%, 0.5);
+}
+
+/* Utilities */
+.sr-only {
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+
+  position: absolute;
+  left: -99999px;
+  top: auto;
+}

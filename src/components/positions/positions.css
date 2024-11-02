@@ -1,0 +1,6 @@
+.positions {
+  position: absolute;
+  inset: 0;
+
+  cursor: pointer;
+}

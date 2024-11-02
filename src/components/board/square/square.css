@@ -1,0 +1,136 @@
+.square {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+}
+
+.square.light {
+  background-color: var(--clr-light);
+}
+
+.square.dark {
+  background-color: var(--clr-dark);
+}
+
+.square.light .label {
+  color: var(--light-sq-coord-clr);
+}
+
+.square.dark .label {
+  color: var(--dark-sq-coord-clr);
+}
+
+/* Highlight candidate moves */
+.square.highlighted::after {
+  content: "";
+  width: calc(var(--square-size) * 0.25);
+  height: calc(var(--square-size) * 0.25);
+  border-radius: 50%;
+}
+
+.square.light.highlighted::after {
+  background-color: var(--legal-move-highlight-clr-light);
+}
+
+.square.dark.highlighted::after {
+  background-color: var(--legal-move-highlight-clr-dark);
+}
+
+.square.attacked::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+}
+
+.square.light.attacked::after {
+  background-image: radial-gradient(
+    circle,
+    transparent 80%,
+    var(--legal-move-highlight-clr-light) 81%
+  );
+}
+
+.square.dark.attacked::after {
+  background-image: radial-gradient(
+    circle,
+    transparent 80%,
+    var(--legal-move-highlight-clr-dark) 81%
+  );
+}
+
+/* Highlight the last move */
+.square.light.last-move {
+  background-color: var(--last-move-highlight-clr-light);
+}
+
+.square.dark.last-move {
+  background-color: var(--last-move-highlight-clr-dark);
+}
+
+/* Highlight the king square when in check */
+.square.in-check::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.7;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.square.light.in-check::after {
+  background-image: radial-gradient(
+    circle at center,
+    hsl(0, 97%, 45%) 0%,
+    hsla(0, 100%, 54%, 0.4) 40%,
+    hsla(0, 100%, 54%, 0.2) 60%,
+    transparent 70%
+  );
+  mix-blend-mode: multiply;
+}
+
+.square.dark.in-check::after {
+  background-image: radial-gradient(
+    circle at center,
+    hsl(360, 90%, 45%) 0%,
+    hsla(0, 100%, 70%, 0.7) 30%,
+    hsla(0, 100%, 70%, 0.5) 50%,
+    hsla(0, 100%, 70%, 0.2) 65%,
+    transparent 75%
+  );
+  mix-blend-mode: hard-light;
+}
+
+/* Rank and file coordinates */
+.label {
+  font-size: calc(0.2 * var(--square-size));
+
+  position: absolute;
+}
+
+.label.rank {
+  bottom: 0.25rem;
+  left: 0.25rem;
+}
+
+.label.file {
+  top: 0.25rem;
+  right: 0.25rem;
+}

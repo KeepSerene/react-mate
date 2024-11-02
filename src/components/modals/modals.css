@@ -1,0 +1,25 @@
+.modals {
+  background-color: rgba(0, 0, 0, 0.2);
+
+  position: absolute;
+  inset: 0;
+}
+
+.modal {
+  background-color: var(--clr-light);
+  border: 6px solid var(--clr-dark);
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+
+  position: absolute;
+}
+
+/* Responsiveness */
+/* For desktops >= 992px */
+@media screen and (width >= 62rem) {
+  .modal {
+    border: 8px solid var(--clr-dark);
+    border-radius: 0.5rem;
+    padding: 1rem;
+  }
+}

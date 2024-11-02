@@ -1,0 +1,63 @@
+.modal.game-over {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  color: var(--clr-dark);
+  text-align: center;
+
+  display: grid;
+  gap: 0.5rem;
+}
+
+.modal.game-over h2 {
+  font-size: 1rem;
+}
+
+.modal.game-over p {
+  font-size: 1rem;
+}
+
+.status-img {
+  justify-self: center;
+
+  width: var(--square-size);
+  height: var(--square-size);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.status-img.whiteWins {
+  background-image: url("/images/wk.png");
+}
+
+.status-img.blackWins {
+  background-image: url("/images/bk.png");
+}
+
+.status-img:where(.stalemate, .insufficientMaterial) {
+  width: calc(
+    var(--square-size) * 1.5
+  ); /* Make container wider for two pieces */
+  background-image: url("/images/wk.png"), url("/images/bk.png");
+  background-size: 50% auto, 50% auto; /* Each image takes 50% of the width */
+  background-position: left center, right center;
+  background-repeat: no-repeat, no-repeat;
+}
+
+/* Responsiveness */
+/* For desktops >= 992px */
+@media screen and (width >= 62rem) {
+  .modal.game-over {
+    gap: 1rem;
+  }
+
+  .modal.game-over h2 {
+    font-size: 2.5rem;
+  }
+
+  .modal.game-over p {
+    font-size: 1.2rem;
+  }
+}

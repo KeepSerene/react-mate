@@ -1,0 +1,21 @@
+.board {
+  position: relative;
+}
+
+.squares {
+  width: fit-content;
+  border-radius: 0.3125rem;
+  overflow: hidden;
+
+  display: grid;
+  grid-template-columns: repeat(8, var(--square-size));
+  grid-template-rows: repeat(8, var(--square-size));
+}
+
+/* Media queries */
+/* For tablets >= 576px */
+@media screen and (width >= 36rem) {
+  .squares {
+    border-radius: 0.625rem;
+  }
+}
