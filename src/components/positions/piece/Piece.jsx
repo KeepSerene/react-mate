@@ -28,6 +28,7 @@ function Piece({ rankIndex, fileIndex, piece }) {
   const currentPosition = positions[positions.length - 1];
   const prevPosition = positions[positions.length - 2];
 
+  // Desktop drag handlers
   const handleDragStart = (event) => {
     event.dataTransfer.effectAllowed = "move";
     event.dataTransfer.setData(
@@ -57,12 +58,12 @@ function Piece({ rankIndex, fileIndex, piece }) {
 
   return (
     <div
-      className={`piece ${piece} p-${rankIndex}${fileIndex}`}
       role="img"
       aria-label={pieceMap[piece]}
       draggable={true}
       onDragStart={handleDragStart}
       onDragEnd={handleDragEnd}
+      className={`piece ${piece} p-${rankIndex}${fileIndex}`}
     ></div>
   );
 }

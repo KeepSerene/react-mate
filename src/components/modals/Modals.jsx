@@ -20,7 +20,12 @@ function Modals({ children }) {
   if (appState.status === gameStatus.ongoing) return null;
 
   return (
-    <div className="modals">
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-label="Game action required"
+      className="modals"
+    >
       {React.Children.toArray(children).map((child) =>
         React.cloneElement(child, { onClose: dismissModal })
       )}

@@ -2,6 +2,7 @@
   width: var(--square-size);
   height: var(--square-size);
   background-size: 100%;
+  cursor: grab;
 
   position: absolute;
 }

@@ -25,7 +25,12 @@ function GameOverModal() {
   );
 
   return (
-    <div className="modal game-over">
+    <section
+      role="dialog"
+      aria-modal="true"
+      aria-label={hasWon ? "Game Over - Winner!" : "Game Over - Draw"}
+      className="modal game-over"
+    >
       <h2>{hasWon ? appState.status : isStalemate ? "Stalemate!" : "Draw!"}</h2>
 
       <p>{!hasWon && appState.status}</p>
@@ -35,11 +40,12 @@ function GameOverModal() {
       <button
         type="button"
         onClick={() => dispatch(setupNewGame())}
+        aria-label="Start a new game"
         className="btn"
       >
         New game
       </button>
-    </div>
+    </section>
   );
 }
 

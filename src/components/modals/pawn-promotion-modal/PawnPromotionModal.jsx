@@ -72,22 +72,28 @@ function PawnPromotionModal({ onClose }) {
   };
 
   return (
-    <ul
-      role="list"
-      className="modal pawn-promotion"
+    <div
+      role="listbox"
+      aria-label="Choose a piece for pawn promotion"
       style={getPawnPromotionModalPos()}
+      className="modal pawn-promotion"
     >
       {options.map((option, index) => (
-        <li
+        <div
           key={index}
           onClick={() => handleClick(option)}
-          role="img"
-          aria-label={`Click to choose a ${optionMap[`${color}${option}`]}`}
           tabIndex={0}
+          onKeyDown={(event) => {
+            if (event.key === "Enter" || event.key === " ") {
+              handleClick(option);
+            }
+          }}
+          role="option"
+          aria-label={`Promote pawn to ${optionMap[`${color}${option}`]}`}
           className={`piece ${color}${option}`}
-        ></li>
+        ></div>
       ))}
-    </ul>
+    </div>
   );
 }
 
