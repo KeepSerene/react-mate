@@ -2,7 +2,7 @@
 
 ReactMate is a modern, responsive chess application built with React.js and Vite. It provides a fully functional chess analysis board with a clean, intuitive interface and comprehensive chess rule implementation.
 
-![ReactMate Screenshot](/ReactMate.png)
+![ReactMate Screenshot](./public/ReactMate.png)
 
 ## Live Demo
 
