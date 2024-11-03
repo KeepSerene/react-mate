@@ -12,8 +12,8 @@ export const gameStatus = {
 export const gameState = {
   positions: [getInitialPosition()],
   turn: "w",
-  candidateMoves: [],
   status: gameStatus.ongoing,
+  candidateMoves: [],
   promotionMoveCoords: null,
   castleDirections: {
     w: "both",

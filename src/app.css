@@ -50,6 +50,7 @@
 @media screen and (width >= 62em) {
   .app-wrapper {
     --square-size: 4rem;
+
     width: var(--desktop-width);
 
     flex-direction: row;

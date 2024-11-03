@@ -65,12 +65,19 @@ export const reducer = (state, action) => {
     }
 
     case actionTypes.TRIGGER_TAKE_BACK: {
-      let { positions, turn, castleDirections, lastMoveCoords, moveList } =
-        state;
+      let {
+        positions,
+        turn,
+        status,
+        castleDirections,
+        lastMoveCoords,
+        moveList,
+      } = state;
 
       if (positions.length > 1) {
         positions = positions.slice(0, positions.length - 1);
         turn = turn === "w" ? "b" : "w";
+        status = gameStatus.ongoing;
         castleDirections = {
           w: "both",
           b: "both",
@@ -83,6 +90,7 @@ export const reducer = (state, action) => {
         ...state,
         positions,
         turn,
+        status,
         castleDirections,
         lastMoveCoords,
         moveList,

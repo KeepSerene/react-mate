@@ -120,7 +120,7 @@ export const getMoveNotation = ({
   }
 
   // Add check/checkmate
-  if (isCheck) moveNotation += "+";
+  if (isCheck && !isCheckmate) moveNotation += "+";
   else if (isCheckmate) moveNotation += "#";
 
   return moveNotation;
