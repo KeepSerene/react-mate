@@ -4,16 +4,16 @@ import { gameStatus } from "../game-state";
 export const reducer = (state, action) => {
   switch (action.type) {
     case actionTypes.MAKE_NEW_MOVE: {
-      let { positions, turn, movesList } = state;
+      let { positions, turn, moveList } = state;
       turn = turn === "w" ? "b" : "w";
       positions = [...positions, action.payload.newPosition];
-      movesList = [...movesList, action.payload.moveNotation];
+      moveList = [...moveList, action.payload.moveNotation];
 
       return {
         ...state,
         positions,
         turn,
-        movesList,
+        moveList,
       };
     }
 
@@ -65,7 +65,7 @@ export const reducer = (state, action) => {
     }
 
     case actionTypes.TRIGGER_TAKE_BACK: {
-      let { positions, turn, castleDirections, lastMoveCoords, movesList } =
+      let { positions, turn, castleDirections, lastMoveCoords, moveList } =
         state;
 
       if (positions.length > 1) {
@@ -76,7 +76,7 @@ export const reducer = (state, action) => {
           b: "both",
         };
         lastMoveCoords = { from: [], to: [] };
-        movesList = movesList.slice(0, movesList.length - 1);
+        moveList = moveList.slice(0, moveList.length - 1);
       }
 
       return {
@@ -85,7 +85,7 @@ export const reducer = (state, action) => {
         turn,
         castleDirections,
         lastMoveCoords,
-        movesList,
+        moveList,
       };
     }
 

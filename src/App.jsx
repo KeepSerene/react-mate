@@ -3,7 +3,7 @@ import "./app.css";
 // Component imports
 import Board from "./components/board/Board";
 import Controls from "./components/controls/Controls";
-import MovesList from "./components/controls/moves-list/MovesList";
+import MoveList from "./components/controls/move-list/MoveList";
 import TakeBack from "./components/controls/take-back/TakeBack";
 
 // Context imports
@@ -23,13 +23,13 @@ function App() {
 
   return (
     <AppContext.Provider value={{ appState, dispatch }}>
-      <main className="board-wrapper">
+      <main className="app-wrapper">
         <h1 className="sr-only">Chess: White goes first!</h1>
 
         <Board />
 
         <Controls>
-          <MovesList />
+          <MoveList />
 
           <TakeBack />
         </Controls>

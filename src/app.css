@@ -1,27 +1,25 @@
-/* Mobile-first approach */
-
-.board-wrapper {
-  --mobile-width: 100%;
-  --tablet-width: 35rem;
-  --desktop-width: 47.5rem;
+/* app.css */
+.app-wrapper {
+  --mobile-width: min(100%, 30rem);
+  --tablet-width: min(100%, 35rem);
+  --desktop-width: 62.5rem;
 
   --board-margin: 1rem;
-  --square-size: 2.5rem; /* Base square size for mobile devices */
+  --square-size: 2.5rem; /* Base square size for mobile */
 
   width: var(--mobile-width);
-  max-width: 100%;
   padding: var(--board-margin);
+  margin-inline: auto;
 
   display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1.5rem;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 .btn {
   background-color: var(--clr-btn-bg);
   color: var(--clr-btn-text);
-  font-size: 1rem;
+  font-size: 0.9rem;
   text-transform: capitalize;
   border: none;
   border-radius: 0.25rem;
@@ -34,36 +32,47 @@
   opacity: 0.85;
 }
 
-/* Media queries */
-/* For tablets >= 576px */
-@media screen and (width >= 36rem) {
-  .board-wrapper {
+/* Media Queries */
+/* For tablets: 576px - 991px */
+@media screen and (width >= 36em) and (width < 62em) {
+  .app-wrapper {
     --square-size: 3.5rem;
 
     width: var(--tablet-width);
   }
+
+  .controls {
+    min-height: 24rem;
+  }
 }
 
 /* For desktops >= 992px */
-@media screen and (width >= 62rem) {
-  .board-wrapper {
-    --square-size: 4.5rem;
-
+@media screen and (width >= 62em) {
+  .app-wrapper {
+    --square-size: 4rem;
     width: var(--desktop-width);
+
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 3rem;
   }
 
   .btn {
     font-size: 1rem;
-    border-radius: 0.5rem;
     padding: 0.8rem 1rem;
   }
 }
 
-/* Additional breakpoint for very small screens <= 400px */
-@media screen and (width <= 25rem) {
-  .board-wrapper {
-    --square-size: 2.25rem; /* Slightly smaller cells for very small screens */
+/* For very small screens <= 400px */
+@media screen and (width <= 25em) {
+  .app-wrapper {
+    --square-size: 2.25rem;
 
     padding: calc(var(--board-margin) / 2);
+  }
+
+  .controls {
+    min-height: 18rem;
   }
 }

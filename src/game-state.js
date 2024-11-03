@@ -20,5 +20,5 @@ export const gameState = {
     b: "both",
   },
   lastMoveCoords: { from: [], to: [] },
-  movesList: [],
+  moveList: [],
 };

@@ -1,14 +1,14 @@
-import "./moves-list.css";
+import "./move-list.css";
 
 // Context imports
 import { useAppContext } from "../../../contexts/Context";
 
-function MovesList() {
+function MoveList() {
   const { appState } = useAppContext();
 
   return (
-    <ul role="list" className="moves-list">
-      {appState.movesList.map((move, index) => (
+    <ul role="list" className="move-list">
+      {appState.moveList.map((move, index) => (
         <li
           key={index}
           data-number={`${Math.floor(index / 2 + 1)}.`}
@@ -21,4 +21,4 @@ function MovesList() {
   );
 }
 
-export default MovesList;
+export default MoveList;

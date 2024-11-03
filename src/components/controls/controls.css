@@ -1,8 +1,27 @@
 .controls {
+  width: 100%;
+  min-height: 20rem;
   height: calc(8 * var(--square-size));
-  text-align: center;
+  padding: 1rem;
 
   display: flex;
   flex-direction: column;
   gap: 2rem;
+}
+
+/* Media Queries */
+/* For tablets: 576px - 991px */
+@media screen and (width >= 36em) and (width < 62em) {
+  .controls {
+    padding: 1.5rem;
+  }
+}
+
+/* For very small screens <= 400px */
+@media screen and (width <= 25em) {
+  .controls {
+    min-height: 18rem;
+
+    gap: 1.5rem;
+  }
 }

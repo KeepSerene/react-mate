@@ -31,7 +31,9 @@ import {
 function Positions() {
   const { appState, dispatch } = useAppContext();
 
-  // Get the latest position
+  // Get the latest position-
+  // This is how the board looks when the player starts dragging a piece
+  // Needed for special cases like en passant captures where we need to know the previous board state
   const currentPosition = appState.positions[appState.positions.length - 1];
 
   const positionsDivRef = useRef(null);
@@ -121,6 +123,7 @@ function Positions() {
         });
       }
 
+      // Represents how the board will look after the piece has been moved
       const newPosition = arbiter.getNewPosition({
         currentPosition,
         piece,
@@ -138,11 +141,25 @@ function Positions() {
         currentFile: +fileIndex,
         landingRank,
         landingFile,
+        isCheck: arbiter.isInCheck({
+          currentPosition,
+          newPosition,
+          currentPlayer: opponent, // Check for a "check" from the opponent's perspective
+        }),
+        isCheckmate: arbiter.isCheckmate(
+          newPosition,
+          opponent,
+          castleDirection
+        ),
       });
 
+      // Make a move
       dispatch(makeNewMove({ newPosition, moveNotation }));
+
+      // Highlight the move made
       dispatch(highlightLastMove({ lastMoveCoords }));
 
+      // Take actions based on game states
       if (arbiter.isStalemate(newPosition, opponent, castleDirection)) {
         dispatch(assertStalemate());
       } else if (arbiter.hasInsufficientMaterial(newPosition)) {
@@ -152,6 +169,7 @@ function Positions() {
       }
     }
 
+    // After making the move, clear the candidate moves
     dispatch(clearCandidateMoves());
   };
 
